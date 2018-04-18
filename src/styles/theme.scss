@@ -29,34 +29,47 @@
 
 /*================ HOLDING PAGE ================*/
 
+/*Colors*/
+$grey: #e5e5e5;
+$yellow: #fef9cf;
+$green: #9bbdaa;
+
+
 /*Standards*/
 body{
   font-family: 'Lora', serif;
 }
-
 main{
   background: url({{ 'bg-darker.jpg' | asset_url }}) no-repeat center center;
   background-size: cover;
   min-height:100vh;
   text-align: center;
 }
-
+footer{
+  background: $yellow;
+  display: flex;
+  padding: 1.5rem;
+}
 input{
-  margin-bottom: -2px;
  text-align: left;
+ margin-top:-2px;
+ @include media-query($medium-up) {
+   margin-top:0;
+ }
 }
 input[type=text],input[type=email], input[type=submit]{
   background: none;
-  border-width: 2px 0 2px 0;
   padding: 1rem 0;
   width:100%;
   font-family: 'Lora', serif;
+    border-width: 2px 0 2px 0;
 }
 input[type=submit]{
   color: rgba(white,.56);
   font-weight: bold;
-
+  border-width: 2px 0 2px 0;
 }
+
 
 input[type=text],input[type=email]{
   color:white !important;
@@ -78,7 +91,37 @@ button:focus {
 }
 
 /*MailChimp Override*/
-#mc_embed_signup input.mce_inline_error{
+.mc-status, .error-message{
+  text-align: left;
+  font-weight: bold;
+  color: #FF0000;
+}
+
+.error-message{
+    margin: 1rem 0;
+}
+.success-msg{
+  color: white;
+  border-style: solid;
+  border-width: 2px 0 2px 0;
+  display: block;
+  padding: 1rem 0;
+  text-align: left;
+}
+
+.display-success{
+  display: none;
+}
+
+#form-wrapper.success{
+  .display-input{
+    display: none;
+  }
+  .display-success{
+    display: block;
+  }
+}
+input.mce_inline_error{
   border-color:red !important;
 }
 
@@ -93,13 +136,26 @@ button:focus {
 .page-width{
   max-width:668px;
   margin:auto;
+  padding:1rem;
+  @include media-query($medium-up) {
+    padding:1.5rem;
+  }
 }
 .logo-wrapper{
-  width:130px;
+
   margin:0 auto;
-  padding: 100px 0;
+  padding: 60px 0 30px;
+
+  width:140px;
   img{
-    margin-left:-60px;
+    margin-left:-30px;
+  }
+  @include media-query($medium-up) {
+    width:130px;
+    padding: 100px 0;
+    img{
+      margin-left:-60px;
+    }
   }
 }
 .copy{
