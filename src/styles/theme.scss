@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*============================================================================
-  [replace with theme name] | Built with Slate
+  coloral1947 | Built with Slate
     - You cannot use native CSS/Sass @imports in this file without a build script
 ==============================================================================*/
 
@@ -26,3 +26,84 @@
 /*================ MODULES ================*/
 @import url('modules/site-header.scss');
 @import url('modules/gift-card-template.scss');
+
+/*================ HOLDING PAGE ================*/
+
+/*Standards*/
+body{
+  font-family: 'Lora', serif;
+}
+
+main{
+  background: url({{ 'bg-darker.jpg' | asset_url }}) no-repeat center center;
+  background-size: cover;
+  min-height:100vh;
+  text-align: center;
+}
+
+input{
+  margin-bottom: -2px;
+ text-align: left;
+}
+input[type=text],input[type=email], input[type=submit]{
+  background: none;
+  border-width: 2px 0 2px 0;
+  padding: 1rem 0;
+  width:100%;
+  font-family: 'Lora', serif;
+}
+input[type=submit]{
+  color: rgba(white,.56);
+  font-weight: bold;
+
+}
+
+input[type=text],input[type=email]{
+  color:white !important;
+}
+
+input::placeholder{
+  color:white;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+/*MailChimp Override*/
+#mc_embed_signup input.mce_inline_error{
+  border-color:red !important;
+}
+
+.mce_inline_error{
+    background:none !important;
+    color:red !important;
+    padding-left: 0 !important;
+    text-align: left;
+}
+
+/*Specific*/
+.page-width{
+  max-width:668px;
+  margin:auto;
+}
+.logo-wrapper{
+  width:130px;
+  margin:0 auto;
+  padding: 100px 0;
+  img{
+    margin-left:-60px;
+  }
+}
+.copy{
+  line-height: 2.33em;
+  color: white;
+  margin-bottom: 5rem
+}
