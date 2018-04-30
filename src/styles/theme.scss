@@ -82,7 +82,7 @@ input::placeholder{
 }
 
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px white inset;
+    -webkit-box-shadow: 0 0 0 30px $yellow inset;
 }
 
 input:focus,

@@ -517,7 +517,10 @@ window.displayMailChimpStatus = function (data) {
 	if (!data.result || !data.msg || !mcStatus || !formWrapper) return;
 
 	// Update our status message
-	mcStatus.innerHTML = data.msg;
+	var ret = data.msg.replace(' to list Coloral Limited','');
+	console.log(ret);
+
+	mcStatus.innerHTML = ret;
 
 	//add class to wrapper
 
