@@ -19,6 +19,7 @@ window.theme = window.theme || {};
 // =require templates/customers-login.js
 
 $(document).ready(function() {
+
   var sections = new slate.Sections();
   sections.register('product', theme.Product);
 
@@ -51,4 +52,5 @@ $(document).ready(function() {
   if (slate.cart.cookiesEnabled()) {
     document.documentElement.className = document.documentElement.className.replace('supports-no-cookies', 'supports-cookies');
   }
+  AOS.init();
 });
