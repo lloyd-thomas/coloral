@@ -19,7 +19,7 @@
     </div>
      <div class="flex__item">
          <div class="text-block text-center">
-         <h1>{{ product.title }}</h1>
+         <h1 class="big">{{ product.title }}</h1>
          <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
            <meta itemprop="priceCurrency" content="{{ shop.currency }}">
            <meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
@@ -32,7 +32,6 @@
                    <label for="SingleOptionSelector-{{ forloop.index0 }}">
                      {{ option.name }}
                    </label>
-
                    <select
                      id="SingleOptionSelector-{{ forloop.index0 }}"
                      data-single-option-selector
@@ -59,11 +58,11 @@
                  </option>
                {% endfor %}
              </select>
-
-             <label class="big" for="Quantity">{{ 'products.product.quantity' | t }}</label>
-             <input type="number" id="Quantity" name="quantity" value="1" min="1">
-
-             <div data-price-wrapper>
+             <div class="p-b">
+               <label class="big" for="Quantity">{{ 'products.product.quantity' | t }}</label>
+               <input type="number" id="Quantity" name="quantity" value="1" min="1">
+             </div>
+             <div data-price-wrapper class="p-b">
                <span class="field big outline" data-product-price>
                  {{ current_variant.price | money }}
                </span>
@@ -98,23 +97,27 @@
     </div><!-- flex__item -->
    </div>
 
-
+   <section>
    <div class="product-details-wrapper">
-     <h1 class="field outline text-center">Product Details</h1>
-     <div class="big text-center">{{ product.description }}</div>
-   </div>
+     <div class="m-b"><h1 class="field outline text-center">Product Details</h1></div>
 
-  {% if product.images.size > 1 %}
-    <ul>
-      {% for image in product.images %}
-        <li>
-          <a href="{{ image.src | img_url: '480x480' }}" data-product-single-thumbnail>
-            <img src="{{ image.src | img_url: '160x160' }}" alt="{{ image.alt | escape }}">
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+     <div class="medium text-center">{{ product.description }}</div>
+   </div>
+ </section>
+
+ <section>
+  <div class="six-image-grid">
+    {% if product.images.size > 1 %}
+      <ul class="flex-box">
+        {% for image in product.images %}
+          <li class="flex__item">
+            <img src="{{ image.src | img_url: '480x480' }}" alt="{{ image.alt | escape }}">
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+  </section>
 
 
 
