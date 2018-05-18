@@ -52,5 +52,13 @@ $(document).ready(function() {
   if (slate.cart.cookiesEnabled()) {
     document.documentElement.className = document.documentElement.className.replace('supports-no-cookies', 'supports-cookies');
   }
+
+  // Added for Coloral
+    $('#image-carousel').slick({
+      dots: true,
+      speed: 500
+    });
   AOS.init();
+
+
 });

@@ -1,0 +1,34 @@
+button, .button {
+    font-family: $font-stack-header;
+    color: $text-grey;
+    display: inline-block;
+    @include prefix('user-select', 'none', moz ms webkit spec);
+    @include prefix(appearance, none, webkit moz spec);
+    background: white;
+    border: 0;
+    border-radius: 2em;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    padding: .5em .75em;
+    font-weight: $font-weight-bold;
+    &.big{
+      font-size: $font-size-title;
+    }
+    &.outline{
+      //background: transparent;
+      border:2px solid $text-grey;
+    }
+    &.green{
+      background: $green2;
+      color:white;
+      border:2px solid $green2;
+    }
+    &.grey{
+      background: $text-grey;
+      color:white;
+      border:2px solid $text-grey;
+    }
+}

@@ -6,6 +6,7 @@
 
 /*================ UTILS ================*/
 @import url('tools/mixins.scss');
+@import url('tools/functions.scss');
 
 /*================ SETTINGS ================*/
 @import url('settings/variables.scss.liquid');
@@ -18,6 +19,7 @@
 @import url('global/layout.scss');
 @import url('global/icons.scss');
 @import url('global/rte.scss');
+@import url('global/buttons.scss');
 @import url('global/responsive-tables.scss');
 @import url('global/links-buttons.scss');
 @import url('global/forms.scss');
@@ -31,30 +33,43 @@
 
 /*================ VENDOR ================*/
 @import url('vendor/aos.css');
+//@import url('vendor/slick/slick-theme.scss');
+@import url('vendor/slick/slick.scss');
 
-/*Colors*/
-$grey: #e5e5e5;
-$yellow: #fef9cf;
-$green: #9bbdaa;
 
 
 /*Standards*/
+html,body{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 body{
-  font-family: 'Lora', serif;
+  font-family: $font-stack-body;
+  padding-top:2rem;
 }
 a{
   color:inherit;
 }
-main{
-  background: url({{ 'bg-darker.jpg' | asset_url }}) no-repeat center center;
-  background-size: cover;
-  min-height:100vh;
-  text-align: center;
+
+header{
+  position: relative;
 }
+
 footer{
-  background: $yellow;
-  padding: 1.5rem;
+  @include media-query($medium-up) {
+    h1{
+      margin-top:6rem;
+    }
+    form{
+      padding:6rem;
+    }
+  }
+//  padding: 1.5rem;
 }
+table.footer-nav{
+  width:100%;
+}
+
 input{
  text-align: left;
  margin-top:-2px;
@@ -67,22 +82,15 @@ input[type=text],input[type=email], input[type=submit]{
   padding: 1rem 0;
   width:100%;
   font-family: 'Lora', serif;
-    border-width: 2px 0 2px 0;
-}
-input[type=submit]{
-  color: rgba(white,.56);
-  font-weight: bold;
   border-width: 2px 0 2px 0;
 }
 
 
-input[type=text],input[type=email]{
-  color:white !important;
+
+input[type=text],input[type=email],input::placeholder{
+  color:black !important;
 }
 
-input::placeholder{
-  color:white;
-}
 
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px $yellow inset;
@@ -93,6 +101,66 @@ select:focus,
 textarea:focus,
 button:focus {
     outline: none;
+}
+
+input[type=submit]{
+  color: rgba(black,.56);
+  font-weight: bold;
+  border-width: 2px 0 2px 0;
+  border-color: black;
+  border-style: solid;
+  border-radius: 0;
+}
+
+section{
+  margin: 5rem 0;
+}
+
+p{
+  font-size: $font-size-base;
+  line-height: 2em;
+}
+
+img{
+  display: block;
+}
+
+ul.site-nav{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  li{
+    float:left;
+    margin-right:1rem;
+    a{
+      @extend button;
+    }
+  }
+}
+
+.big{
+  font-size: $font-size-big;
+  line-height: 1.516em;
+}
+
+.field{
+  @extend .button;
+  background: transparent;
+}
+
+.cart-wrapper{
+  position: absolute;
+  right:0;
+  .flex-box{
+    margin-left: 1rem;
+    .flex__item{
+      .flex-box{
+        .flex__item{
+        margin-left: .5rem;
+        }
+      }
+    }
+  }
 }
 
 /*MailChimp Override*/
@@ -118,7 +186,7 @@ button:focus {
   display: none;
 }
 
-#form-wrapper.success{
+#form-wrapper.success, .form-wrapper{
   .display-input{
     display: none;
   }
@@ -137,14 +205,32 @@ input.mce_inline_error{
     text-align: left;
 }
 
+
+.flex-box{
+  @include media-query($medium-up) {
+    display: flex;
+    justify-content:center;
+    align-items:center;
+  }
+}
+
+
+.index-flex{
+  @include media-query($medium-up) {
+    .flex__item{
+      width:50%;
+      height:100%;
+    }
+  }
+}
 /*Specific*/
 
 ul.social-wrapper{
   display: flex;
   width:180px;
   list-style-type: none;
-  margin: 4rem auto;
-  padding: 0;
+  margin: auto;
+  padding: 4rem 0;
   align-items: center;
   li{
     position: relative;
@@ -156,20 +242,458 @@ ul.social-wrapper{
   }
 }
 
-.page-width{
-  max-width:668px;
-  margin:auto;
-  padding:1rem;
-  @include media-query($medium-up) {
-    padding:1.5rem;
+.hero-img{
+  height:630px;
+  width:100%;
+  overflow: hidden;
+  /*display: flex;
+  flex-direction: column;
+  justify-content: center;*/
+  position: relative;
+  img{
+    position: absolute;
+    bottom: 0;
   }
 }
+
 .logo-wrapper{
+  text-align: center;
+   margin:0 auto;
+   padding: 60px 0 30px;
+   //width:140px;
+   img{
+    // margin-left:-30px;
+    max-width: 180px;
+    display: inline-block;
+   }
+   .tagline{
+     text-transform: capitalize;
+     margin:1rem 0;
+     font-size: 1.3rem;
+   }
+}
+
+.text-block{
+    padding:4rem;
+    position: relative;
+}
+
+.bg-yellow{
+  background: $yellow;
+  color: $text-grey;
+}
+
+.bg-green{
+  background: $green2;
+  color: $text-grey;
+}
+
+
+.slick-slider{
+
+  //overflow: hidden;
+  z-index: 99;
+  margin-bottom: 0 !important;
+  .slick-list{
+    max-height:628px;
+    overflow: hidden;
+    .slick-slide{
+      img{
+        transform: translateY(-15%);
+      }
+    }
+  }
+  ul.slick-dots{
+    position: absolute;
+    text-align: center;
+    margin:0;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    width:100%;
+    li{
+      margin:3px;
+      button{
+        width:16px;
+        height:16px;
+        border-radius: 8px;
+        background-color: white;
+        font-size: 0;
+        &:before{
+           display: none;
+        }
+      }
+      &.slick-active{
+        button{
+          background-color: black;
+        }
+      }
+    }
+  }
+}
+
+/* Cyclists Positions */
+
+.temp1{
+  background-size:100%;
+  height:800px;
+}
+
+.cyclists-block{
+  height:580px;
+  margin-bottom:10rem;
+}
+.cyclist-1-pos{
+  position: absolute;
+  right: 9%;
+  top: 220px;
+  img{
+    width:240px;
+    height:auto;
+  }
+}
+
+.cyclist-2-pos{
+  position: absolute;
+  left: 28%;
+  top: 378px;
+  img{
+    width:500px;
+    height:auto;
+  }
+}
+
+.cyclist-3-pos{
+  position: absolute;
+  left: 6%;
+  top: 230px;
+  img{
+    width:280px;
+    height:auto;
+  }
+}
+
+.four-image-grid{
+  .flex__item{
+    border-style:solid;
+    border-color:white;
+  }
+  .flex-box:nth-child(1){
+    .flex__item:nth-child(1){
+      border-width:0 0 1px 2px;
+    }
+    .flex__item:nth-child(2){
+      border-width:0 0 1px 2px;
+    }
+  }
+  .flex-box:nth-child(2){
+    .flex__item:nth-child(1){
+      border-width:1px 0 0 2px;
+    }
+    .flex__item:nth-child(2){
+      border-width:1px 0 0 2px;
+    }
+  }
+}
+
+// Footer elements
+
+
+.supporting-strip{
+  background-color: tint($grey, 60%);
+  .flex__item{
+    margin:3rem 0;
+    &:first-child{
+      padding-right:4rem;
+    }
+  }
+  img{
+    max-height: 100px;
+  }
+  .vertical-divider{
+    border-left:1px solid black;
+    height:87px;
+    margin: 0 2rem;
+  }
+}
+
+section.social{
+  background-color: tint($grey, 60%);
+  .social-wrapper{
+    padding-top: 1rem;
+    width: 212px;
+  }
+}
+
+
+.temp-guide{
+  background: url({{ 'guide-temp.png' | asset_url }}) no-repeat center top;
+  padding:30px;
+  background-size: $width-site;
+  width:$width-site;
+  height:3500px;
+  border-left:1px solid red;
+  border-right:1px solid red;
+  top:270px;
+  margin:auto;
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+  display: none;
+}
+
+.our-story{
+  position: relative;
+  padding:0;
+  height:3500px;
+  .text-block{
+    text-align: center;
+    padding: 5%;
+    position: absolute;
+    p{
+      font-size: 14px;
+    }
+  }
+  .text-block-1{
+    width: 476px;
+    height: 479px;
+    background: $green2;
+    top: 0;
+    right: 0;
+  }
+  .text-block-2{
+    left: 0;
+    top: 578px;
+    width: 476px;
+    background: $yellow;
+  }
+  .text-block-3{
+    right: 0;
+    top: 1036px;
+    width: 476px;
+    height: 477px;
+    background: $lighter-grey;
+  }
+  .text-block-4{
+    right: 0;
+    top: 1945px;
+    width: 476px;
+    height: 477px;
+    background: $green2;
+  }
+  .text-block-5{
+    left: 0;
+    top: 2644px;
+    width: 476px;
+    height: 477px;
+    background: $yellow;
+  }
+
+}
+
+
+//Graphical elements on 'Our Story' page.
+#pink-sky{
+  position: absolute;
+  left:92px;
+  width:1008px;
+}
+
+#mountains{
+  position: absolute;
+  left: 152px;
+  width: 947px;
+  top: 298px;
+}
+#landscape{
+  position: absolute;
+  top: 262px;
+  width: 944px;
+  left: 156px;
+}
+#cyclists{
+  position: absolute;
+  width: 584px;
+  top: 709px;
+  left: 504px;
+}
+
+#bottle{
+  position: absolute;
+  right: 116px;
+  top: 636px;
+  width: 115px;
+}
+
+#grapes{
+  position: absolute;
+  left: 204px;
+  top: 1087px;
+  width: 115px
+}
+
+#milk{
+  position: absolute;
+  left: 329px;
+  top: 1101px;
+  width: 122px
+}
+
+#cyclist-1{
+  position: absolute;
+  left: 670px;
+  top: 1331px;
+  width: 197px;
+}
+
+#cyclist-2{
+  position: absolute;
+  left: 634px;
+  top: 1594px;
+  width: 302px;
+}
+
+#cyclist-3{
+  position: absolute;
+  left: 399px;
+  top: 1494px;
+  width: 212px;
+}
+
+#blueprint{
+  position: absolute;
+  left: 213px;
+  top: 1430px;
+  width: 177px;
+}
+
+#mountains-foreground{
+  position: absolute;
+  left: 159px;
+  top: 1627px;
+  width: 942px;
+}
+
+#ocean{
+  position: absolute;
+  left: 122px;
+  top: 2000px;
+  width: 980px;
+}
+
+#ocean-copy{
+  position: absolute;
+  left: 99px;
+  top: 2212px;
+  width: 980px;
+
+}
+
+#bottle-copy{
+  position: absolute;
+  left: 300px;
+  top: 1974px;
+  width: 115px
+}
+
+#ship{
+  position: absolute;
+  left: 298px;
+  top: 2394px;
+  width: 599px;
+}
+
+#bike{
+  position: absolute;
+  left: 545px;
+  top: 2411px;
+  width: 272px;
+}
+
+#one-percent{
+  position: absolute;
+  left: 825px;
+  top: 2731px;
+  width: 286px;
+}
+
+#ocean-foreground{
+  position: absolute;
+  left: 90px;
+  top: 2584px;
+  width: 1081px;
+
+}
+
+#triangles{
+  position: absolute;
+  left: 183px;
+  top: 2260px;
+  width: 137px;
+}
+
+//Product page //
+
+.product-details-wrapper{
+//  max-width:50%;
+  text-align:center;
+  margin:auto;
+  color:$text-grey;
+}
+
+
+
+/* Holding page override */
+
+#holding .copy{
+  line-height: 2.33em;
+  color: white;
+  margin-bottom: 5rem
+}
+
+
+
+#holding input[type=submit]{
+  color: white;
+  font-weight: bold;
+  border-width: 2px 0 2px 0;
+  border-color: white;
+  border-style: solid;
+  border-radius: 0;
+}
+
+#holding{
+  input,
+  textarea,
+  select {
+  border-color: white;
+  }
+  input[type=text],input[type=email],input::placeholder{
+    color:white !important;
+  }
+}
+
+#holding main{
+  background: url({{ 'bg-darker.jpg' | asset_url }}) no-repeat center center;
+  background-size: cover;
+  min-height:100vh;
+  text-align: center;
+}
+
+#holding footer{
+  background-color: $yellow;
+  ul.social-wrapper{
+    margin:auto;
+  }
+}
+
+#holding .logo-wrapper{
   margin:0 auto;
   padding: 60px 0 30px;
   width:140px;
   img{
     margin-left:-30px;
+    display: inline-block;
   }
   @include media-query($medium-up) {
     width:130px;
@@ -179,8 +703,15 @@ ul.social-wrapper{
     }
   }
 }
-.copy{
-  line-height: 2.33em;
-  color: white;
-  margin-bottom: 5rem
+#holding .page-width{
+  max-width:668px;
+  margin:auto;
+  padding:1rem;
+  @include media-query($medium-up) {
+    padding:1.5rem;
+  }
+}
+
+#holding p{
+  font-size:16px;
 }
