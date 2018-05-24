@@ -1,0 +1,215 @@
+
+//Graphical elements on 'Our Story' page.
+#pink-sky{
+  position: absolute;
+  left:92px;
+  width:1008px;
+  &:before{
+    content:url({{ 'our-story-pink-sky.png' | asset_img_url: '1008x' }});
+  }
+}
+
+#mountains{
+  position: absolute;
+  left: 152px;
+  width: 947px;
+  top: 298px;
+  &:before{
+    content:url({{ 'our-story-mountains.png' | asset_img_url: '947x' }});
+  }
+}
+#landscape{
+  position: absolute;
+  top: 312px;
+  width: 944px;
+  left: 156px;
+  &:before{
+    content:url({{ 'our-story-landscape.png' | asset_img_url: '944x' }});
+  }
+}
+#cyclists{
+  position: absolute;
+  width: 584px;
+  top: 709px;
+  left: 504px;
+  &:before{
+    content:url({{ 'our-story-cyclists.png' | asset_img_url: '584x' }});
+  }
+}
+
+#bottle{
+  position: absolute;
+  right: 116px;
+  top: 636px;
+  width: 115px;
+  &:before{
+    content:url({{ 'our-story-bottle.png' | asset_img_url: '115x' }});
+  }
+}
+
+#grapes{
+  position: absolute;
+  left: 204px;
+  top: 1087px;
+  width: 115px;
+  &:before{
+    content:url({{ 'our-story-grapes.png' | asset_img_url: '115x' }});
+  }
+}
+
+#milk{
+  position: absolute;
+  left: 329px;
+  top: 1101px;
+  width: 122px;
+  &:before{
+    content:url({{ 'our-story-milk.png' | asset_img_url: '122x' }});
+  }
+}
+
+#cyclist-1{
+  position: absolute;
+  left: 670px;
+  top: 1331px;
+  width: 197px;
+  &:before{
+    content:url({{ 'cyclist-1.png' | asset_img_url: '197x' }});
+  }
+}
+
+#cyclist-2{
+  position: absolute;
+  left: 634px;
+  top: 1594px;
+  width: 302px;
+  &:before{
+    content:url({{ 'cyclist-2.png' | asset_img_url: '302x' }});
+  }
+}
+
+#cyclist-3{
+  position: absolute;
+  left: 399px;
+  top: 1494px;
+  width: 212px;
+  &:before{
+    content:url({{ 'cyclist-3.png' | asset_img_url: '212x' }});
+  }
+}
+
+#blueprint{
+  position: absolute;
+  left: 213px;
+  top: 1430px;
+  width: 177px;
+  &:before{
+    content:url({{ 'our-story-blueprint.png' | asset_img_url: '177x' }});
+  }
+}
+
+#mountains-foreground{
+  position: absolute;
+  left: 159px;
+  top: 1627px;
+  width: 942px;
+  &:before{
+    content:url({{ 'our-story-mountains-foreground.png' | asset_img_url: '942x' }});
+  }
+}
+
+#ocean{
+  position: absolute;
+  left: 122px;
+  top: 2000px;
+  width: 980px;
+  &:before{
+    content:url({{ 'our-story-ocean.png' | asset_img_url: '980x' }});
+  }
+}
+
+#ocean-copy{
+  position: absolute;
+  left: 99px;
+  top: 2212px;
+  width: 980px;
+  &:before{
+    content:url({{ 'our-story-ocean.png' | asset_img_url: '980x' }});
+  }
+
+}
+
+#bottle-copy{
+  position: absolute;
+  left: 300px;
+  top: 1974px;
+  width: 115px;
+  &:before{
+    content:url({{ 'our-story-bottle.png' | asset_img_url: '115x' }});
+  }
+}
+
+#ship{
+  position: absolute;
+  left: 298px;
+  top: 2394px;
+  width: 599px;
+  &:before{
+    content:url({{ 'our-story-ship.png' | asset_img_url: '599x' }});
+  }
+}
+
+#bike{
+  position: absolute;
+  left: 545px;
+  top: 2411px;
+  width: 272px;
+  &:before{
+    content:url({{ 'our-story-bike.png' | asset_img_url: '272x' }});
+  }
+}
+
+#one-percent{
+  position: absolute;
+  left: 825px;
+  top: 2731px;
+  width: 286px;
+  &:before{
+    content:url({{ 'our-story-one-percent.png' | asset_img_url: '286x' }});
+  }
+}
+
+@keyframes rotate {
+  100% { transform:rotate(-360deg); }
+}
+
+#ocean-foreground{
+  position: absolute;
+  left: 90px;
+  top: 2584px;
+  width:5px;
+  height:5px;
+  transform-origin:200% center;
+  position:relative;
+  animation:rotate 6s linear infinite;
+  img{
+    display: none;
+  }
+  &:before{
+    content:url({{ 'our-story-ocean-foreground.png' | asset_img_url: '1081x' }});
+    position:absolute;
+    height:100%; width:100%;
+    animation:rotate 6s linear reverse infinite;
+
+   }
+}
+
+
+#triangles{
+  position: absolute;
+  left: 183px;
+  top: 2260px;
+  width: 137px;
+  &:before{
+    content:url({{ 'our-story-triangles.png' | asset_img_url: '137x' }});
+  }
+}

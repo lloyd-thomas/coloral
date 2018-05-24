@@ -10,6 +10,16 @@
     {% else %}
       <!-- for all the other pages -->
     {% endif %}
+    <nav role="navigation" class="top">
+      <ul class="site-nav">
+        {% for link in linklists[section.settings.main_linklist].links %}
+          {%- assign child_list_handle = link.title | handleize -%}
+            <li {% if link.active %}class="site-nav--active"{% endif %}>
+              <a href="{{ link.url }}" class="site-nav__link outline">{{ link.title }}</a>
+            </li>
+        {% endfor %}
+      </ul>
+    </nav>
     <div class="cart-wrapper">
       <div class="flex-box">
         <div class="flex__item">
@@ -20,7 +30,7 @@
             <div class="flex__item">
                 <a href="/cart" class="button outline">{{ 'layout.cart.title' | t }}</a>
             </div>
-            <div class="flex__item">
+            <div class="flex__item counter-wrapper">
               <a href="/cart" class="button grey">{{ cart.item_count }}</a>
             </div>
           </div>
@@ -28,16 +38,7 @@
       </div>
     </div>
   </header>
-  <nav role="navigation">
-    <ul class="site-nav">
-      {% for link in linklists[section.settings.main_linklist].links %}
-        {%- assign child_list_handle = link.title | handleize -%}
-          <li {% if link.active %}class="site-nav--active"{% endif %}>
-            <a href="{{ link.url }}" class="site-nav__link outline">{{ link.title }}</a>
-          </li>
-      {% endfor %}
-    </ul>
-  </nav>
+
 
     <div class="logo-wrapper">
       <a href="/" itemprop="url"><img class="logo" src="{{ 'logo-black.svg' | asset_url }}"></a>

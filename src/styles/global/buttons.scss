@@ -13,7 +13,7 @@ button, .button {
     vertical-align: middle;
     white-space: nowrap;
     padding: .5em .75em;
-    font-weight: $font-weight-bold;
+    font-weight: $font-weight-bold !important;
     &.big{
       font-size: $font-size-big;
     }

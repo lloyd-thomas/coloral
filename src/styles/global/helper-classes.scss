@@ -75,3 +75,36 @@
   z-index: $z-index-skip-to-content;
   transition: none;
 }
+
+.fixed    { position: fixed; }
+.relative { position: relative; }
+.absolute { position: absolute; }
+.static   { position: static; }
+
+
+.p-b{
+  //one line spacer
+  padding-bottom: 1.5rem;
+}
+
+.p-l{
+  padding-left: 1rem;
+}
+
+.p-r{
+  padding-right: 1rem;
+}
+
+//margins
+
+.m-l{
+  margin-left:1rem;
+}
+
+.m-r{
+  margin-right:1rem;
+}
+
+.m-b{
+  margin-bottom: 1.5rem;
+}

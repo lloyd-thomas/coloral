@@ -58,7 +58,9 @@ $(document).ready(function() {
       dots: true,
       speed: 500
     });
-  AOS.init();
+  AOS.init({
+    offset: 200
+  });
 
 
 });

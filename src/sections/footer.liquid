@@ -1,4 +1,5 @@
 <footer>
+    {% if template != 'cart' %}
   <div class="supporting-strip">
     <div class="page-width flex-box">
       <div class="flex__item"><p class="big">Coloral supports <b>Re-Cycle</b> and <b>1% For The Planet</b></p></div>
@@ -7,6 +8,7 @@
       <div class="flex__item"><img src="{{'logo-fortheplanet.png' | asset_url}}"></div>
     </div>
   </div>
+
     <div class="page-width text-center">
       <h1 class="button big outline">Keep Informed</h1>
       <div id="form-wrapper">
@@ -37,6 +39,7 @@
       </form>
       </div>
     </div>
+
     <section class="social text-center">
       <h1 class="button big outline">Follow Us</h1>
       <ul class="social-wrapper">
@@ -45,6 +48,7 @@
         <li><a href="https://twitter.com/coloral1947">{% include 'icon-coloral-twitter' %}</a></li>
       </ul>
     </section>
+      {% endif %}
     <section>
     <div class="page-width">
       <table class="responsive-table footer-nav">
