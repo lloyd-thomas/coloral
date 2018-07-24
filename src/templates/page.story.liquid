@@ -1,28 +1,67 @@
 <!--<h1>{{ page.title }}</h1>-->
+{% assign p_1 = '<p>Over a Century Old, Le Tour De France has gained notoriety for being the toughest, most gruelling road race in the world. In 1903, of the sixty cyclists that started its first race, only twenty finished.</p>
+<p>Covering a distance of 3,500km, cyclists travel through treacherous mountain passes of the rugged Pyrenees and snow-topped Alps, and end at the grand Champs-Élysées in Paris.</p>' %}
 
-<div class="page-width our-story">
+{% assign p_2 = '<p>In the golden age of the 40s and 50s, a time of legends and bitter rivals, a metal ‘bidon’ was the container that riders used to carry water.</p>
+<p>The most recognisable bidon was Coloral, a fluted alloy bottle with a cork stopper and tooled cap signed off with a scripted logo. Riders didn’t just reserve them for bottling water, but also to preserve a simple blend of milk and sugar that kept energy levels high during competitions, and even wine when celebrating victories.</p>
+<p>Despite its cult status, Coloral’s production dwindled and ceased completely in the mid-1950s due to manufacturing pressures.</p>' %}
+
+{% assign p_3 = '<p>Driven by an enthusiasm for cycling and with a hope of reviving the bottle using modern day materials, we set out on a journey.</p>
+  <p>We delved into the British Library Company’s archives to learn the history of Coloral, visited vintage bike festivals,  steel spinning factories and observed the traditional methods used in the original production line.</p>' %}
+
+{% assign p_4 = '<p>The reengineered 14 fl.oz Coloral bottle is upgraded using food-grade stainless steel brushed for a muted finish.</p>
+<p>Its robust design is lightweight and compact, and we’ve tweaked the dimensions to fit modern bottle cages.</p>
+<p>It’s been vacuum insulated to keep cold drinks cool and your hot drinks piping hot, and there’s no plastic used in the flask or its packaging.</p>' %}
+
+
+{% assign p_5 = '<p>And we’ve teamed with Re-Cycle, who repurpose 165 tonnes of discarded bikes each year. Now, every Coloral bottle sold helps support the initiative, who work with partners to teach African
+communities how to repair and maintain bikes, ensuring easier access to healthcare, education and clean, safe drinking water – an element that brings Coloral’s purpose full circle.</p><p>Finally, we’re also committed to 1% for the planet, ensuring that profits go to what we really care about – protecting the earth. </p><p>Please join us for the ride.</p>' %}
+
+
+<div class="our-story">
+<div class="text-center p-t"><h1 class="main-header white big">{{ page.title }}</h1></div>
+  <div class="view-mobile">
+
+      <img src="{{'mobile-our-story-1.png' | asset_url}}">
+      <div class="text-block-wrapper text-block-1">
+        <div class="text-block">{{ p_1 }}</div>
+      </div>
+        <img src="{{'mobile-our-story-2.jpg' | asset_url}}">
+      <div class="text-block-wrapper text-block-2">
+        <div class="text-block">{{ p_2 }}</div>
+      </div>
+        <img src="{{'mobile-our-story-3.jpg' | asset_url}}">
+      <div class="text-block-wrapper text-block-3">
+        <div class="text-block">{{ p_3 }}</div>
+      </div>
+        <img src="{{'mobile-our-story-4.jpg' | asset_url}}">
+      <div class="text-block-wrapper text-block-4">
+        <div class="text-block">{{ p_4 }}</div>
+      </div>
+        <img src="{{'mobile-our-story-5.jpg' | asset_url}}">
+      <div class="text-block-wrapper text-block-5">
+        <div class="text-block">{{ p_5 }}</div>
+      </div>
+  </div>
+  <div class="view-desktop">
   <div id="pink-sky" class="img-block"></div>
-  <div class="text-block text-block-1" data-aos="fade-left">
-    <div data-aos="fade-in">
-    <p>Over a Century Old, Le Tour De France has gained notoriety for being the toughest, most gruelling road race in the world. In 1903, of the sixty cyclists that started its first race, only twenty finished.</p>
-    <p>Covering a distance of 3,500km, cyclists travel through treacherous mountain passes of the rugged Pyrenees and snow-topped Alps, and end at the grand Champs-Élysées in Paris.</p>
-    </div>
+  <div class="text-block-1 text-block-wrapper">
+      <div class="text-block" data-aos="fade-left">
+        <div data-aos="fade-in">{{ p_1 }}</div>
+      </div>
   </div>
   <div id="mountains" class="img-block" data-aos="slide-up" data-aos-duration="3000"></div>
-  <div id="landscape" class="img-block" data-aos="slide-up"  data-aos-duration="2800"></div>
-  <div class="text-block text-block-2" data-aos="fade-right">
-    <div data-aos="fade-in">
-  <p>In the golden age of the 40s and 50s, a time of legends and bitter rivals, a metal ‘bidon’ was the container that riders used to carry water.</p>
-  <p>The most recognisable bidon was Coloral, a fluted alloy bottle with a cork stopper and tooled cap signed off with a scripted logo. Riders didn’t just reserve them for bottling water, but also to preserve a simple blend of milk and sugar that kept energy levels high during competitions, and even wine when celebrating victories.</p>
-  <p>Despite its cult status, Coloral’s production dwindled and ceased completely in the mid-1950s due to manufacturing pressures.</p>
-  </div>
-  </div>
-  <div class="text-block text-block-3" data-aos="fade-left">
-    <div data-aos="fade-in">
-  <p>Driven by an enthusiasm for cycling and with a hope of reviving the bottle using modern day materials, we set out on a journey.</p>
-  <p>We delved into the British Library Company’s archives to learn the history of Coloral, visited vintage bike festivals,  steel spinning factories and observed the traditional methods used in the original production line.</p>
+  <div id="landscape" class="img-block"></div>
+    <div class="text-block-2 text-block-wrapper">
+      <div class="text-block" data-aos="fade-right">
+        <div data-aos="fade-in">{{ p_2 }}</div>
+      </div>
     </div>
-  </div>
+    <div class="text-block-3 text-block-wrapper">
+      <div class="text-block" data-aos="fade-left">
+        <div data-aos="fade-in">{{ p_3 }}</div>
+      </div>
+    </div>
   <div id="cyclists" class="img-block"></div>
   <div id="cyclist-1" class="img-block"></div>
   <div id="cyclist-2" class="img-block"></div>
@@ -40,18 +79,15 @@
   <div id="bike" class="img-block" data-aos="slide-up"></div>
   <div id="ocean-foreground" class="img-block"></div>
   <div id="one-percent" class="img-block" data-aos="zoom-in"></div>
-  <div class="text-block text-block-4" data-aos="fade-left">
-    <div data-aos="fade-in">
-    <p>Driven by an enthusiasm for cycling and with a hope of reviving the bottle using modern day materials, we set out on a journey.</p>
-    <p>We delved into the British Library Company’s archives to learn the history of Coloral, visited vintage bike festivals,  steel spinning factories and observed the traditional methods used in the original production line.</p>
+  <div class="text-block-4 text-block-wrapper">
+    <div class="text-block" data-aos="fade-left">
+      <div data-aos="fade-in">{{ p_4 }}</div>
     </div>
   </div>
-  <div class="text-block text-block-5" data-aos="fade-right">
-    <div data-aos="fade-in">
-      <p>And we’ve teamed with Re-Cycle who repurpose 165 tonnes of discarded bikes each year. For every Coloral bottle sold, Re-Cycle send a bike to Africa, where they work with partners to teach local communities how to repair and maintain them.</p>
-      <p>Sending these bikes ensures easier access to healthcare, education and clean, safe drinking water – an element that brings Coloral’s purpose full circle. </p>
-      <p>Finally, we’re also committed to 1% for the planet, ensuring that profits go to what we really care about – protecting the earth. </p>
-      <p>Please join us for the ride.</p>
+  <div class="text-block-5 text-block-wrapper">
+    <div class="text-block" data-aos="fade-right">
+      <div data-aos="fade-in">{{ p_5 }}</div>
     </div>
   </div>
+</div>
 </div>
