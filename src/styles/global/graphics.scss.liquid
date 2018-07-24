@@ -1,4 +1,9 @@
-
+.our-story .view-mobile{
+  background: url({{ 'our-story-bg-mobile.jpg' | asset_img_url: '600x' }}) no-repeat;
+  background-size: 100%;
+  max-width: 380px;
+  margin:auto;
+}
 //Graphical elements on 'Our Story' page.
 #pink-sky{
   position: absolute;
@@ -211,5 +216,41 @@
   width: 137px;
   &:before{
     content:url({{ 'our-story-triangles.png' | asset_img_url: '137x' }});
+  }
+}
+
+.slick-arrow{
+  position: absolute;
+  z-index: 99;
+  width:1rem;
+  height:36px;
+  //border:1px solid red;
+  top:50%;
+  background: transparent;
+  &:before{
+
+
+  }
+}
+
+.slick-prev{
+  left:0;
+  font-size: 0;
+  margin-left:1rem;
+  &:before{
+    content:url({{ 'icon-arrow-left.svg' | asset_url }});
+    width:1rem;
+    height:36px;
+  }
+}
+
+.slick-next{
+  right:0;
+  font-size: 0;
+  margin-right:1rem;
+  &:before{
+    content:url({{ 'icon-arrow-right.svg' | asset_url }});
+    width:1rem;
+    height:36px;
   }
 }

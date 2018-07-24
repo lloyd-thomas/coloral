@@ -14,21 +14,39 @@ button, .button {
     white-space: nowrap;
     padding: .5em .75em;
     font-weight: $font-weight-bold !important;
+
     &.big{
-      font-size: $font-size-big;
+       @include media-query($medium-up) {
+         font-size: $font-size-big;
+       }
     }
     &.outline{
       //background: transparent;
       border:2px solid $text-grey;
+      &:hover{
+        background: $text-grey;
+        color:white;
+      }
     }
     &.green{
       background: $green2;
       color:white;
       border:2px solid $green2;
+      &:hover{
+        background: black;
+        color:white;
+        border:2px solid black;
+      }
     }
     &.grey{
       background: $text-grey;
       color:white;
       border:2px solid $text-grey;
+
     }
+    &.white{
+      background: white;
+      color:$text-grey;
+    }
+
 }
