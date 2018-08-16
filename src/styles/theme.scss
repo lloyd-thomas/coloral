@@ -207,6 +207,7 @@ $grid-gutter: 30px;
 
 $mini: 'mini';
 $small: 'small';
+$small-up: 'small-up';
 $medium: 'medium';
 $medium-down: 'medium-down';
 $medium-up: 'medium-up';
@@ -220,6 +221,7 @@ $widescreen: 'widescreen';
 $breakpoints: (
   $mini '(max-width: #{$grid-small - 1})',
   $small '(max-width: #{$grid-medium - 1})',
+  $small-up '(min-width: #{$grid-small})',
   $medium '(min-width: #{$grid-medium}) and (max-width: #{$grid-large - 1})',
   $medium-down '(max-width: #{$grid-large - 1})',
   $medium-up '(min-width: #{$grid-medium})',
@@ -235,7 +237,7 @@ $breakpoints: (
     - Default is no push classes
     - Will not work if `styles/global/grid.scss` is removed
 ==============================================================================*/
-$breakpoint-has-widths: ($mini, $small, $medium-up, $large-up);
+$breakpoint-has-widths: ($mini, $small, $small-up, $medium-up, $large-up);
 $breakpoint-has-push: ($medium-up);
 
 /*================ Sizing Variables ================*/
@@ -2265,6 +2267,20 @@ input.mce_inline_error{
   }
 }
 
+.flex-inner{
+  display: flex;
+  flex-wrap:wrap;
+  .flex__item{
+    width:100%;
+  }
+  @include media-query($small-up) {
+    .flex__item{
+      width:50%;
+      height:100%;
+    }
+  }
+}
+
 .reverse-order{
     .flex__item:first-child{
       order:2;
@@ -2369,9 +2385,13 @@ ul.social-wrapper{
 }
 .slick-slider{
   .slick-arrow{
-    visibility: hidden;
+    //visibility: hidden;
+    width:.75rem;
+    margin-top: -5%;
     @include media-query($medium-up) {
       visibility: visible;
+      margin-top: 0;
+      width:1rem;
     }
   }
 
@@ -2432,7 +2452,7 @@ ul.social-wrapper{
 }
 
 .cyclists-block{
-  padding-bottom: 50%;
+  padding-bottom: 40%;
   @include media-query($medium-up) {
     height:580px;
     margin-bottom:10rem;
@@ -2495,13 +2515,50 @@ ul.social-wrapper{
     }
 }
 
+.three-bikes-pos{
+  position: absolute;
+  width:90%;
+  left:5%;
+}
+
 .four-image-grid{
+
   .img-wrapper{
     padding:$gutter/3 $gutter/3 0 $gutter/3;
-      @include media-query($medium-up) {
+
+      @include media-query($small-up) {
         padding:0;
       }
   }
+  .last-img-wrapper{
+    padding:$gutter/3;
+    @include media-query($small-up) {
+      padding:0;
+    }
+  }
+
+    @include media-query($small-up) {
+      .flex__item{
+        border-style:solid;
+        border-color:white;
+      }
+      .flex-box:nth-child(1){
+        .flex__item:nth-child(1){
+          border-width:0 0 1px 2px;
+        }
+        .flex__item:nth-child(2){
+          border-width:0 0 1px 2px;
+        }
+      }
+      .flex-box:nth-child(2){
+        .flex__item:nth-child(1){
+          border-width:1px 0 0 2px;
+        }
+        .flex__item:nth-child(2){
+          border-width:1px 0 0 2px;
+        }
+      }
+    }
     @include media-query($medium-up) {
       .flex__item{
         border-style:solid;
@@ -2572,11 +2629,19 @@ ul.social-wrapper{
 .supporting-strip{
   text-align: center;
   background-color: tint($grey, 60%);
+  padding:1rem 0;
   .flex__item{
-    margin:3rem 0;
+      @include media-query($medium-up) {
+        margin:2rem 0;
+      }
+    &:last-child{
+      img{
+        width: 68px;
+      }
+    }
   }
   img{
-    max-height: 100px;
+    //max-height: 100px;
   }
   .vertical-divider{
     border-left:1px solid black;
@@ -2862,4 +2927,15 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.text-page{
+  .grid{
+    padding:0 1rem;
+    font-size:16px;
+    @include media-query($medium-up) {
+      padding:1.5rem;
+      font-size:1rem;
+    }
+  }
 }
