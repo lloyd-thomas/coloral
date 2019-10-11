@@ -111,7 +111,7 @@
       <ul class="flex-box">
         {% for image in product.images %}
           <li class="flex__item">
-            <img src="{{ image.src | img_url: '480x480' }}" alt="{{ image.alt | escape }}">
+            <img src="{{ image.src | img_url: '800x800' }}" alt="{{ image.alt | escape }}">
           </li>
         {% endfor %}
       </ul>
