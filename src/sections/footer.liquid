@@ -1,5 +1,6 @@
 <footer>
     {% if template != 'cart' %}
+  {% if template != 'product' %}
   <div class="supporting-strip">
     <div class="page-width flex-box">
       <div class="flex__item"><p class="big">Coloral supports <b>Re-Cycle</b> and <b>1%&nbsp;For&nbsp;The&nbsp;Planet</b></p></div>
@@ -8,9 +9,10 @@
       <div class="flex__item"><img src="{{'logo-fortheplanet.png' | asset_url}}"></div>
     </div>
   </div>
+      {% endif %}
   <section>
     <div class="page-width text-center">
-      <h1 class="main-header big outline">Keep Informed</h1>
+      <h1 class="main-header big outline" style="margin-top:2rem">Keep Informed</h1>
       <div id="form-wrapper">
       <form action="https://coloral.us18.list-manage.com/subscribe/post?u=008b4e9f8d09faf46d64deca8&amp;id=2d250db1cc" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
       <!--<div class="indicates-required"><span class="asterisk">*</span> indicates required</div>-->

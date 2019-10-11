@@ -8,6 +8,7 @@
   <meta itemprop="brand" content="{{ product.vendor }}">
   <meta itemprop="image" content="{{ featured_image | img_url: '600x600' }}">
   <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
+  {% if current_variant.available %}
 
   <div class="flex-box bg-yellow index-flex" data-aos="fade-left">
      <div class="flex__item">
@@ -97,6 +98,8 @@
     </div><!-- flex__item -->
    </div>
 
+
+
    <section>
    <div class="product-details-wrapper">
      <div class="m-b"><h1 class="field outline text-center">Product Details</h1></div>
@@ -118,6 +121,32 @@
     {% endif %}
   </div>
   </section>
+
+  {% else %}
+  <div class="bg-yellow index-flex" data-aos="fade-left">
+    <div class="text-center" style="max-width:740px;margin:auto;padding-bottom:4rem;">
+      <p style="margin-top:2em">
+      <button class="outline big grey"><span>{{ 'products.product.sold_out' | t }}</button>
+      </p>
+      <p style="margin-top:3rem">Hello</p>
+      <p>Thank you for your interest in the Coloral Bottle.<br />
+Unfortunately, we are at present out of stock.</p>
+      <p>Our initial production run of 3000 sold quicker than any of us expected.<br />
+The demand took us a bit by surprise.</p>
+      <p>But we are on it. We are in production currently with a new<br />
+(and slightly improved) bottle and we hope to be on sale again in Spring 2020.</p>
+      <p>If you’d like to be notified as soon as the new stock arrives<br />
+please leave your name and email address below.</p>
+      <p>When the stock lands in the warehouse, you’ll be the first to know.</p>
+      <p>Thanks for your support.</p>
+<p>We really appreciate it.</p>
+  <div style="border:1px solid #787878;width:64px;margin:2rem auto;"></div>
+    <b style="font-size:19px">Darrick, Tom and Warren</b>
+
+   </div>
+ </div>
+
+  {% endif %}
 
 
 
